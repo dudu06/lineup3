@@ -1,0 +1,55 @@
+<h1>Cut Some Hair!</h1><br>
+
+<div class="col-sm-4 col-sm-offset-4">
+<%= form_for @barbers do |f| %>
+
+	<div class="form-group">
+	<%= f.text_field :email, placeholder: "E-Mail", class: 'form-control' %><br />
+	</div>
+	
+	<div class="form-group">
+	<%= f.text_field :first_name, placeholder: "First Name", class: 'form-control' %><br />
+	</div>
+
+	<div class="form-group">
+	<%= f.text_field :last_name, placeholder: "Last Name", class: 'form-control' %><br />
+	</div>
+
+	<div class="form-group">
+	<%= f.text_field :sex, placeholder: "Sex", class: 'form-control' %><br />
+	</div>
+
+	<div class="form-group">
+	<%= f.text_field :address, placeholder: "Address", class: 'form-control' %><br />
+	</div>
+
+	<div class="form-group">
+	<%= f.text_field :zipcode, placeholder: "Zip Code", class: 'form-control' %><br />
+	</div>
+
+	<div class="form-group">
+	<%= f.text_field :low_price, placeholder: "Low Price", class: 'form-control' %><br />
+	</div>
+
+	<div class="form-group">
+	<%= f.text_field :high_price, placeholder: "High Price", class: 'form-control' %><br />
+	</div>
+
+	<div class="form-group">
+	<%= f.password_field :password, placeholder: "Password", class: 'form-control' %><br />
+	</div>
+
+	<div class="form-group">
+	<%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: 'form-control' %><br />
+	</div>
+
+
+		Upload a Photo<%= f.file_field :image %>
+
+	
+	<%= f.submit "Submit", class: 'btn btn-primary'%>
+
+	<% end %>
+
+
+</div>

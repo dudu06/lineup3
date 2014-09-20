@@ -1,0 +1,9 @@
+These are 
+
+<!-- haircuts -->
+
+<div id="calendar" class="calendar-container"></div>
+<% @haircut.each do |h| %>
+    <strong><%#= h.customer.first_name.last_name %></strong>:
+    <%= h.inspect %><br>
+<% end %>

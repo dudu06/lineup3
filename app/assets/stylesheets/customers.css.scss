@@ -1,0 +1,35 @@
+// Place all the styles related to the customers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#container {
+	width: 1200px;
+	height: 1300px;
+	border-style: dashed;
+}
+
+.customers {
+	margin-bottom: 10px;
+	margin-left: 30px;
+}
+
+/*.left_column {
+	width: 420px;
+	height: 1200px;
+	background-color: red;
+	padding-left: 30px;
+	margin-left: 20px;
+	display: block;
+	float: left;
+}*/
+
+.right_column {
+	width: 1200px;
+	height: 600px;
+	background-color: #F64744;
+	padding-right: 30px;
+	margin-right: 20px;
+	display: block;
+	margin: 0 auto;
+	
+}

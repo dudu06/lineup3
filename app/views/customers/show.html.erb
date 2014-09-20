@@ -1,0 +1,27 @@
+<div id="container">
+
+<div class="customer_name"> 
+<%= @customer.first_name %> is ready to cut hair!
+
+<%= link_to "Edit profile", edit_customer_path, class: 'btn btn-primary' %>
+
+</div>
+
+<div class="right_column">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="col-md-6">
+				<ul>
+				<%= image_tag @customer.avatar.url(:medium), class: 'img-circle img-profile', width: 200 %>
+				<h2> All barbers in my zipcode </h2>
+					<% @barbers.each do |b| %>
+						<li>
+						<strong> Hi!<%= @customer.first_name %> Get a haircut from <%= b.first_name %> </strong> <%= link_to "Show me more about #{b.first_name}!", barber_path(b) %> <!-- We pass in the c and use this c loop here-->
+						</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</div> <!-- container div -->
