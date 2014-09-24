@@ -1,12 +1,44 @@
-<h1>YOOOOOO!</h1>
-	<div class="col-md-6">
-		<%= image_tag @barber.avatar.url(:large) %>
-		<%= @barber.first_name %> is ready to cut hair!
-		<%= link_to "Want a haircut?", new_haircut_path %>
-	</div>
+<div id="container">
 
 
 
+<div class="content"> <!-- This is the red background -->
+		<div class="container">
+			<div class="box">
+				<div class="row">
+				<div class="col-lg-3">
+					<%= image_tag @barber.avatar.url(:large), 
+					class: 'img-square img-profile', width: 267 %>
+				</div>
+				<div class="col-lg-5">
+					<div id="greeting">
+						<h1>Hi <%= @barber.first_name %>! 
+							Ready for a haircut?
+						</h1>
+						<% @barber.first.pictures.each do |p| %>
+						<%= image_tag p.url %>
+						<% end %>
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<div class="bio">
+					</div>
+				</div>
+				</div> <!-- row -->
+			</div> <!-- strip w/ hi, picture and bio -->
+		</div> <!-- container -->
+		<div class="container">
+			<div class="endorsements">
+				<div class="row">
+				<%= link_to "Add Picture to Portfolio", class: 'btn btn-primary' %>
+				</div> <!-- end of 1st row of pictures -->
+			</div> <!-- end of endorsements -->
+		</div> <!-- end of container holding endorsements -->
 
 
-<%#= link_to "Want a haircut?", fullcalendar_engine_path, class: 'btn btn-primary btn-lg' %></a></p>
+</div> <!-- content div -->
+
+</div> <!-- container div -->
+
+
+

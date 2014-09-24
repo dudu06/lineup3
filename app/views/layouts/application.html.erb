@@ -8,7 +8,7 @@
 	 
 
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "angular" %>
+  <%= javascript_include_tag "application" %>
   <%#= javascript_include_tag "angular" %>
   <!-- <link rel='stylesheet' href='fullcalendar/fullcalendar.css' /> -->
 <!-- <script src='fullCalendar.js'></script> -->
@@ -27,6 +27,8 @@
 	<% end %>
 
 <!-- <div id='calendar'></div> -->
+
+
 <%= yield %>
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
@@ -37,12 +39,81 @@
 <script>
 // $(document).ready(function() {
   $('#calendar').fullCalendar({
+  	header: {
+  		left: 'prev,next today',
+  		center: 'title',
+  		right: 'month,agendaWeek,agendaDay'
+  	},
+  	allDay: false,
+  	timezone: 'UTC',
+  	editable: true,
+  	selectable: true,
   	events: '/haircuts.json',
   	type: "GET",
   	error: function() {
   		alert("Calendar data encountered an error");
   	}
   });
+
+//This script is for the typeahead to work!
+// $(function() {
+// $("#typeahead").typeahead({
+// 	source: function(query, process) {
+// 		$.ajax({
+// 			url: 'barbers.json', 
+// 			type: 'POST', 
+// 			data: 'query=' + query, 
+// 			dataType: 'JSON', 
+// 			async: true,
+// 			success: function(data) {
+// 				console.log(data);
+// 				}
+// 			});
+// 		}
+// 	});
+// });
+
+var barbers = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('zipcode'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  limit: 10,
+  // limit is the number of entries that gets outputted
+  prefetch: {
+    // url points to a json file that contains an array of country names, see
+    // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+    url: '/barbers.json',
+    // filter: filterResponse, 
+    prefetch: true, 
+    // the json file contains an array of strings, but the Bloodhound
+    // suggestion engine expects JavaScript objects so this converts all of
+    // those strings
+    filter: function(list) {
+		console.log(list);
+      return $.map(list, function(barber) { return { zipcode: barber }; });
+    }
+  }
+});
+
+
+// kicks off the loading/processing of `local` and `prefetch`
+barbers.initialize();
+ 
+// passing in `null` for the `options` arguments will result in the default
+// options being used
+$('#prefetch .typeahead').typeahead(null, {
+  name: 'barbers',
+  displayKey: 'zipcode',
+  // `ttAdapter` wraps the suggestion engine in an adapter that
+  // is compatible with the typeahead jQuery plugin
+  source: barbers.ttAdapter()
+});
+
+
+// This is called a prefetch which loads data from a JSON file
+// $('input').typeahead({
+// name: 'States',
+// prefetch: '/barbers.json'
+// });
 </script>
 	
 

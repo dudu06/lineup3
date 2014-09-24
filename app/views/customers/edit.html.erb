@@ -1,29 +1,41 @@
-<!-- Edit Page -->
-<div class="edit col-sm-4 center-block">
-  <%# link_to "Back to Fetching!", users_path, class: 'back-btn' %>
 
-  <%= form_for @customer do |f| %>
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-      <%= f.text_field :first_name, placeholder: "What's your first name?", :class => "form-control" %>
-      <%= f.text_field :last_name, placeholder: "Last name?", :class => "form-control" %>
-    </div>
-    <div class="input-group">
-      <div class="input-group-addon" id="at-symbol-glyph">@</div>
-      <%= f.email_field :email, placeholder: "Enter email", class: "form-control" %><br />
-    </div>
-    <div class="input-group">
-      <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-      <%= f.password_field :password, placeholder: "Password", :class => "form-control" %>
-    </div>
-    <div class="input-group">
-      <br />
-      <%= label_tag "Change your profile picture" %>
-      <%= f.file_field :avatar %>
-      <br />
-    </div>
-  </div>
-  <%= f.submit "Update", class: 'btn btn-primary btn-fetch-primary' %>
-  <% end %>
-</div>
+<div id="edit_form">
+	<div class="edit col-sm-4 center-block">
+
+		<%= form_for @customer do |f| %>
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+				<%= f.text_field :first_name, placeholder: "What's your first name?", :class => "form-control" %>
+				<%= f.text_field :last_name, placeholder: "Last name?", :class => "form-control" %>
+			</div>
+
+			<div class="input-group">
+				<div class="input-group-addon" id="at-symbol-glyph">@</div>
+				<%= f.email_field :email, placeholder: "Enter email", :class => "form-control" %><br />
+			</div>
+
+			<div class="input-group">
+				<div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+				<%= f.password_field :password, placeholder: "Password", :class => "form-control" %>
+			</div>
+
+			<div class="input-group">
+			
+				<%= label_tag "Change your profile picture" %>
+				<%= f.file_field :avatar %>
+			</div>
+		</div>
+		<%= f.submit "Update", class: 'btn btn-primary btn lg btn-block'%>
+		<% end %>
+
+
+	</div> <!-- end of edit form -->
+</div> <!-- end of columns -->
+
+
+	
+		
+
+<!-- <button type="button" class="btn btn-primary btn-lg btn-block">
+class: 'btn btn-large btn-primary' -->

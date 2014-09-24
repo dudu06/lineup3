@@ -1,27 +1,60 @@
 <div id="container">
 
-<div class="customer_name"> 
-<%= @customer.first_name %> is ready to cut hair!
 
-<%= link_to "Edit profile", edit_customer_path, class: 'btn btn-primary' %>
 
-</div>
+<div class="content"> <!-- This is the red background -->
+		<div class="container">
+			<div class="box">
+				<div class="row">
+				<div class="col-lg-3">
+					<%= image_tag @customer.avatar.url(:large), 
+					class: 'img-square img-profile', width: 267 %>
+				</div>
+				<div class="col-lg-5">
+					<div id="greeting">
+						<h1>Hi <%= @customer.first_name %>! 
+							Ready for a haircut?
+						</h1>
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<div class="bio">
+					</div>
+				</div>
+				</div> <!-- row -->
+			</div> <!-- strip w/ hi, picture and bio -->
+		</div> <!-- container -->
+		<div class="container">
+			<div class="endorsements">
+				<div class="row">
+				<%= link_to "Upload Endorsement Picture", new_barber_picture_path class: 'btn btn-primary' %>
+				</div> <!-- end of 1st row of pictures -->
+			</div> <!-- end of endorsements -->
+		</div> <!-- end of container holding endorsements -->
 
-<div class="right_column">
-	<div class="row">
-		<div class="col-md-6">
-			<div class="col-md-6">
-				<ul>
-				<%= image_tag @customer.avatar.url(:medium), class: 'img-circle img-profile', width: 200 %>
-				<h2> All barbers in my zipcode </h2>
-					<% @barbers.each do |b| %>
-						<li>
-						<strong> Hi!<%= @customer.first_name %> Get a haircut from <%= b.first_name %> </strong> <%= link_to "Show me more about #{b.first_name}!", barber_path(b) %> <!-- We pass in the c and use this c loop here-->
-						</li>
-					<% end %>
-				</ul>
-			</div>
-		</div>
+
+</div> <!-- content div -->
+
+ <div class="barber_search">
+ 	<div id="prefetch">
+  	<input class="typeahead" type="text" placeholder="Barbers">
 	</div>
 
+	<div id="remote" style="text-align:center; margin-top: 50px;">
+    <input class="typeahead" type="text" placeholder="Find a Barber in your zipcode">
+	</div>
+	<h2> All barbers in my zipcode </h2>
+	<% @barbers.each do |b| %>
+	<li>
+	<strong> Hi!<%= @customer.first_name %> 
+	Get a haircut from <%= b.first_name %> 
+	</strong> 
+	<%= link_to "Show me more about #{b.first_name}!", barber_path(b) %>
+	</li>
+	<% end %>
+</div>
+
 </div> <!-- container div -->
+
+
+

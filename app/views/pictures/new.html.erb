@@ -1,0 +1,18 @@
+Upload a photo here
+
+<% if current_user.customertype == "Customer" %>
+
+<%= form_for [@customer, @picture] do |f| %>
+	<%= f.file_field :image %>
+	<%= f.submit "Upload Picture", class: 'btn btn-primary'%>
+
+<% end %>
+
+<% else %>
+
+<%= form_for [@barber, @picture] do |f| %>
+	<%= f.file_field :image %>
+	<%= f.submit "Upload Picture", class: 'btn btn-primary'%>
+
+<% end %>
+<% end %>

@@ -26,7 +26,6 @@ class HaircutsController < ApplicationController
 
 	def create
 		 @haircut = Haircut.new(haircut_params)
-		 #What data comes back from OmniAuth?
 		 respond_to do |format|
 		 	if @haircut.save
 		 		format.html { redirect_to :haircuts, notice: "Haircut was made!"}
@@ -48,7 +47,7 @@ class HaircutsController < ApplicationController
 	
 private
 	def haircut_params
-		params.require(:haircut).permit(:review, :barber_id, :customer_id)
+		params.require(:haircut).permit(:review, :barber_id, :customer_id, :created_at)
 	end
 
 

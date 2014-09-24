@@ -1,0 +1,2 @@
+module JoinPicturesHelper
+end

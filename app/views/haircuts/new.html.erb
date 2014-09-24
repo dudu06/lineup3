@@ -1,21 +1,16 @@
 Sign up for a haircut boss!
-<%= form_for(@haircut) do |f| %>
+<%= simple_form_for(@haircut) do |f| %>
 
 	<%= f.label :review %>
-	<%= f.text_field :review %>
+	<%= f.input :review %>
 
 	<%= f.hidden_field :barber_id, :value => Barber.first.id  %>
 	<%= f.hidden_field :customer_id, :value => current_user.id  %>
+	<%= f.input :created_at, as: :datetime, start_year: Date.today.year,
+                              end_year: Date.today.year - 12,
+                              discard_day: false,
+                              order: [:month, :day, :year, :hour, :minute] %>
 
-<div class="form-group">
-    <label class="control-label"><i class="fa fa-calendar"></i> Datetime picker</label><br>
-    <div class="form-group">
-      <input type="text" size="10" class="form-control" ng-model="sharedDate" data-autoclose="1" placeholder="Date" bs-datepicker>
-    </div>
-    <div class="form-group">
-      <input type="text" size="8" class="form-control" ng-model="sharedDate" data-autoclose="1" placeholder="Time" bs-timepicker>
-    </div>
- </div>
 
 	<%= f.submit "Create this shit!", class: 'btn btn-primary' %>
 <% end %>

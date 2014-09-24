@@ -1,0 +1,22 @@
+<ul>
+	<% if current_user.customertype == "Customer" %>
+	<% @customer.pictures.each do |p| %>
+		<li>
+	<!-- if current_user.customer == i.customer -->
+	<strong> My name is <%= @customer.name %> and here is my work. Call me! </strong>
+		</li>
+	<% end %>
+	<%= picture_tag @customer.image.url %>
+
+	<%else %>
+	IM A BARBER!!!!!!
+
+
+	<% @barberpictures.all do |p| %>
+
+	<% end %>
+
+	<% end %>
+
+</ul>
+

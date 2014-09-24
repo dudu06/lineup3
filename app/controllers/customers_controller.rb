@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
 
 	def index 
 	end
-	
+
 
 	def new
 		@customers = Customer.new
@@ -22,15 +22,18 @@ class CustomersController < ApplicationController
 		@customer = Customer.find(params[:id])
 		@barbers = Barber.all
 		@barbers = Barber.where(params[:zipcode])
+		# @pictures = Picture.all
 
 		# users = User.where(name: 'David', occupation: 'Code Artist').order('created_at DESC')
 	end
 
 	def edit
 		@customer = Customer.find(params[:id])
+		# @picture = @customer.pictures.find(params[:id])
 	end
 
 	def update
+		# @picture = @customer.picture.find(params[:id])
     	@customer = Customer.find(params[:id])
     	if @customer.update_attributes(customer_params)
       	redirect_to customers_path
@@ -40,7 +43,7 @@ class CustomersController < ApplicationController
     end
 
 	 def customer_params
-	    params.require(:customer).permit(:first_name, :last_name, :email, :avatar, :password, :password_confirmation)
+	    params.require(:customer).permit(:first_name, :last_name, :email, :avatar, :picture, :password, :password_confirmation, :customertype)
 	 end
 
 

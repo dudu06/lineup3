@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-sprockets
+//= require twitter/typeahead
 //= require fullcalendar
 //= require_tree .

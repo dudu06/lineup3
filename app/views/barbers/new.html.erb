@@ -43,9 +43,8 @@
 	<%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: 'form-control' %><br />
 	</div>
 
-
-		Upload a Photo<%= f.file_field :image %>
-
+	<%= label_tag "Upload a profile picture" %>
+	<%= f.file_field :avatar %> <br>
 	
 	<%= f.submit "Submit", class: 'btn btn-primary'%>
 

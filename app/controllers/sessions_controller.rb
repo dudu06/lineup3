@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 			session[:barber_id] = @barber.id.to_s
 			redirect_to barber_path(@barber)
 		else
-			redirect_to 'https://www.facebook.com/'
+			redirect_to root_path
 		end
 	end
 

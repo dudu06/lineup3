@@ -1,0 +1,23 @@
+<div class="navbar transparent navbar-inverse">
+<nav class="navbar navbar-default" role="navigation"> 
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      
+      <div class ="brand">
+      <a class="navbar-brand" style="color: white;" href="http://localhost:3000"> Menu </a>
+    </div>
+  </div>
+
+  <ul class="nav navbar-nav navbar-right">
+    <% if current_user %>
+      <li class ="logout"><%= link_to "Logout", session_path, method: :delete, html:{style:"color: white;"} %></li>
+    <% else %>
+      <li class ="login"><a href="http://localhost:3000/session/new" style="color: white;">Login</a></li>
+      <li class="dropdown">
+<!--         <a href="<%= new_customer_path %>" style ="color: black;"> Sign Up </a> -->
+        
+      </li>
+    <% end %>
+  </ul>
+</nav> 

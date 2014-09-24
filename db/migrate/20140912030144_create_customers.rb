@@ -12,6 +12,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :profile_pic_file_name
       t.string :profile_pic_content_type
       t.integer :profile_pic_file_size
+      t.string :type 
 
       t.timestamps
     end

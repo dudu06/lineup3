@@ -1,3 +1,4 @@
 class Picture < ActiveRecord::Base
-	belongs_to :barber 
+	has_many :barbers
+	has_many :customers
 end

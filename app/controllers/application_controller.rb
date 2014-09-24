@@ -7,9 +7,14 @@ class ApplicationController < ActionController::Base
 
    helper_method :current_user
 
+   helper_method :barber
+
   def current_user
     @current_user ||= Customer.find(session[:customer_id]) if session[:customer_id]
   end
 
+  def barber
+  @barber == [:is_barber]
+  end
 
 end

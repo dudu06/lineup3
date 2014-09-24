@@ -34,19 +34,26 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem "better_errors"
+group :development, :test do
+	gem "pry-rails"
+	gem "better_errors"
+	gem "binding_of_caller"
+end
 
 gem 'bcrypt', '~> 3.1.7'
 
-gem "binding_of_caller"
 
-gem 'twitter-typeahead-rails'
+
 
 # gem 'fullcalendar_engine'
 gem 'fullcalendar-rails'
 
 #Paperclip manages user upload of profile photos
 gem "paperclip", "~> 4.2"
+
+gem 'simple_form'
+
+gem 'twitter-typeahead-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
